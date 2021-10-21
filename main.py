@@ -67,7 +67,7 @@ def main(yt_url):
     print('work on {}'.format(yt_url))
 
     log_file = yt_url.replace('https://www.youtube.com/watch?v=', '') + '.txt'
-    with open(log_file, 'a') as f:
+    with open('Data/' + log_file, 'a') as f:
         print('{} のチャット欄を記録します。'.format(yt_url), file=f)
     chat_id  = get_chat_id(yt_url)
 

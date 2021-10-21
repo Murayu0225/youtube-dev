@@ -4,7 +4,6 @@ import settings
 
 # Youtube APIの読み込み(envから取得)
 YT_API = settings.YT_API
-yt_url = settings.YT_URL
 
 # 出典元：https://qiita.com/harukikaneko/items/b004048f8d1eca44cba9 (ありがとうございます。)
 def get_chat_id(yt_url):
@@ -79,3 +78,8 @@ def main(yt_url):
             time.sleep(slp_time)
         except:
             break
+
+# ifは必要ない
+if __name__ == '__main__':
+    yt_url = settings.YT_URL
+    main(yt_url)

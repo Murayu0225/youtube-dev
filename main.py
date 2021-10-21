@@ -1,10 +1,16 @@
 import time
 import json
 import requests
-import settings
+import os
+from os.path import join, dirname
+from dotenv import load_dotenv
 
-# Youtube APIの読み込み(envから取得)
-YT_API_KEY = settings.YT_API
+load_dotenv(verbose=True)
+
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
+
+YT_API_KEY = os.environ.get("YT_API_ENV")
 
 # 出典元：https://qiita.com/harukikaneko/items/b004048f8d1eca44cba9 (ありがとうございます。)
 def get_chat_id(yt_url):

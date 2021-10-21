@@ -5,10 +5,6 @@ import settings
 # Youtube APIの読み込み(envから取得)
 YT_API = settings.YT_API
 
-if __name__ == '__main__':
-  yt_url = 'https://www.youtube.com/watch?v=Jr5uuXWB96U'
-  main(yt_url)
-
 # 出典元：https://qiita.com/harukikaneko/items/b004048f8d1eca44cba9 (ありがとうございます。)
 def get_chat_id(yt_url):
     
@@ -87,3 +83,7 @@ def main(yt_url):
     # 人気な方のライブ配信URLを勝手に貼らさせてもらいました。
     # yt_url = https://www.youtube.com/watch?v=Jr5uuXWB96U
     # main(yt_url)
+
+if __name__ == '__main__':
+  yt_url = 'https://www.youtube.com/watch?v=Jr5uuXWB96U'
+  main(yt_url)

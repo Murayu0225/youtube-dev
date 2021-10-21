@@ -1,8 +1,8 @@
 name: Live Status Check
 
-# on:
-  # schedule:
-    # - cron: '00 * * * *'
+# 一時的な実行方法
+on:
+  workflow_dispatch:
 
 jobs:
   build:

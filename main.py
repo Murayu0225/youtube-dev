@@ -80,5 +80,5 @@ def main(yt_url):
             break
 
 if __name__ == '__main__':
-    yt_url = input('Input YouTube URL > ')
+    yt_url = input()
     main(yt_url)

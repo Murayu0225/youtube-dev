@@ -79,6 +79,6 @@ def main(yt_url):
         except:
             break
 
-if __name__ == '__main__':
-    yt_url = input()
+# if __name__ == '__main__':
+    yt_url = settings.yt_url
     main(yt_url)

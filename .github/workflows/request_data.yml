@@ -43,6 +43,7 @@ jobs:
 # ライブチャットデータを保存
       - name: Commit and Push
         run: |
+          git config pull.rebase false
           git add .
           git commit -m "Request ready!" || echo "No changes to commit."
           git pull origin main

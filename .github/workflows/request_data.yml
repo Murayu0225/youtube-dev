@@ -8,39 +8,42 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+# おまじない
       - uses: actions/checkout@v2
 
+# Pythonのセットアップ
       - name: Setup python
         uses: actions/setup-python@v2 
         with:
           python-version: "3.8"
 
+# 必要なパッケージのインストール
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run settings.py
-        env:
-          YT_API: ${{ secrets.YT_API_ENV }}
-          YT_URL: ${{ secrets.YT_URL_ENV }}
-        run: |
-          python settings.py
-
 # チャットを取得するファイルを実行させる
       - name: Run settings.py & main.py
-        env:
-          YT_API: ${{ secrets.YT_API_ENV }}
         run: |
           python settings.py
           python main.py
+        env:
+          YT_API: ${{ secrets.YT_API_ENV }}
+
+# Gitのセットアップ
+      - name: Setup Git
+        run: |
+          git config --local user.name "$secrets.GIT_USER_NAME"
+          git config --local user.email "$secrets.GIT_USER_EMAIL"
+        env:
+          GIT_USER_NAME: ${{ secrets.GIT_USER_NAME }}
+          GIT_USER_EMAIL: ${{ secrets.GIT_USER_EMAIL }}
 
 # ライブチャットデータを保存
       - name: Commit and Push
         run: |
-          git config user.name "Murayu0225"
-          git config user.email "murayu@assistant-app.com"
           git add .
-          git commit -m "Downloaded!" || echo "No changes to commit"
-          git pull  origin main
+          git commit -m "Request ready!" || echo "No changes to commit."
+          git pull origin main
           git push origin main

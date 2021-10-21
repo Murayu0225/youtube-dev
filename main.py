@@ -8,9 +8,9 @@ YT_API_KEY = settings.YT_API
 
 # 出典元：https://qiita.com/harukikaneko/items/b004048f8d1eca44cba9 (ありがとうございます。)
 def get_chat_id(yt_url):
-    
-    # https://developers.google.com/youtube/v3/docs/videos/list?hl=ja
-    
+    '''
+    https://developers.google.com/youtube/v3/docs/videos/list?hl=ja
+    '''
     video_id = yt_url.replace('https://www.youtube.com/watch?v=', '')
     print('video_id : ', video_id)
 
@@ -29,9 +29,9 @@ def get_chat_id(yt_url):
     return chat_id
 
 def get_chat(chat_id, pageToken, log_file):
-
-    # https://developers.google.com/youtube/v3/live/docs/liveChatMessages/list
-
+    '''
+    https://developers.google.com/youtube/v3/live/docs/liveChatMessages/list
+    '''
     url    = 'https://www.googleapis.com/youtube/v3/liveChat/messages'
     params = {'key': YT_API_KEY, 'liveChatId': chat_id, 'part': 'id,snippet,authorDetails'}
     if type(pageToken) == str:

@@ -28,10 +28,11 @@ jobs:
           python settings.py
 
 # チャットを取得するファイルを実行させる
-      - name: Run main.py
-        # env:
-          # YT_URL: '${{ secrets.YT_URL_ENV }}'
+      - name: Run settings.py & main.py
+        env:
+          YT_API: ${{ secrets.YT_API_ENV }}
         run: |
+          python settings.py
           python main.py
 
 # ライブチャットデータを保存

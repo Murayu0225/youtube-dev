@@ -30,7 +30,7 @@ jobs:
 # チャットを取得するファイルを実行させる
       - name: Run main.py
         # env:
-          # YT_URL: ${{ secrets.YT_URL_ENV }}
+          # YT_URL: '${{ secrets.YT_URL_ENV }}'
         run: |
           python main.py
 

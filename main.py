@@ -3,7 +3,9 @@ import json
 import requests
 import settings
 
-YT_API_KEY = 'settings.YT_API'
+YT_API_KEY = settings.YT_API
+# どうしてもActionの動作を見たいので機密事項ですがprintします。すぐにAPIを破棄します。
+print(YT_API_KEY)
 
 # 出典元：https://qiita.com/harukikaneko/items/b004048f8d1eca44cba9 (ありがとうございます。)
 def get_chat_id(yt_url):

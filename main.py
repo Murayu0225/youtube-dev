@@ -4,7 +4,7 @@ import settings
 
 # Youtube APIの読み込み(envから取得)
 YT_API = settings.YT_API
-yt_url = settings.yt_url
+yt_url = settings.YT_URL
 main(yt_url)
 
 # 出典元：https://qiita.com/harukikaneko/items/b004048f8d1eca44cba9 (ありがとうございます。)

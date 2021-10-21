@@ -80,5 +80,6 @@ def main(yt_url):
             break
 
 if __name__ == '__main__':
-    yt_url = settings.YT_URL
+    # 人気な方のライブ配信URLを勝手に貼らさせてもらいました。
+    yt_url = https://www.youtube.com/watch?v=Jr5uuXWB96U
     main(yt_url)

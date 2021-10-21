@@ -79,7 +79,6 @@ def main(yt_url):
         except:
             break
 
-# ifは必要ない
 if __name__ == '__main__':
-    yt_url = settings.YT_URL
+    yt_url = input('Input YouTube URL > ')
     main(yt_url)

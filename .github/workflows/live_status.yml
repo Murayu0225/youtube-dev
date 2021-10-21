@@ -21,6 +21,8 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run settings.py
+        env:
+          YT_API: ${{ secrets.YT_API_ENV }}
         run: |
           python settings.py
 

@@ -29,12 +29,10 @@ jobs:
 
 # チャットを取得するファイルを実行させる
       - name: Run main.py
-        env:
-          YT_URL: ${{ secrets.YT_URL_ENV }}
+        # env:
+          # YT_URL: ${{ secrets.YT_URL_ENV }}
         run: |
           python main.py
-          # このやり方出来るならURLをenvに書き込まない
-          $YT_URL
 
 # ライブチャットデータを保存
       - name: Commit and Push

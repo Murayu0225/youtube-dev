@@ -45,8 +45,8 @@ def get_chat(chat_id, pageToken, log_file):
             channelId = item['snippet']['authorChannelId']
             msg       = item['snippet']['displayMessage']
             usr       = item['authorDetails']['displayName']
-            # supChat   = item['snippet']['superChatDetails']
-            # supStic   = item['snippet']['superStickerDetails']
+            supChat   = item['snippet']['superChatDetails']
+            supStic   = item['snippet']['superStickerDetails']
             log_text  = '[by {}  https://www.youtube.com/channel/{}]\n  {}'.format(usr, channelId, msg)
             with open('Data/' + log_file, 'a') as f:
                 print(log_text, file=f)
@@ -87,5 +87,5 @@ def main(yt_url):
     # main(yt_url)
 
 if __name__ == '__main__':
-  yt_url = 'https://www.youtube.com/watch?v=Jr5uuXWB96U'
+  yt_url = 'https://www.youtube.com/watch?v=lRMS5KBsgbc'
   main(yt_url)

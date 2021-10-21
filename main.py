@@ -61,7 +61,7 @@ def get_chat(chat_id, pageToken, log_file):
 
 def main(yt_url):
     slp_time        = 6 #sec
-    iter_times      = 600 #回
+    iter_times      = 100 #回
     take_time       = slp_time / 60 * iter_times
     print('{}分後　終了予定'.format(take_time))
     print('work on {}'.format(yt_url))
@@ -87,5 +87,5 @@ def main(yt_url):
     # main(yt_url)
 
 if __name__ == '__main__':
-  yt_url = 'https://www.youtube.com/watch?v=lRMS5KBsgbc'
+  yt_url = 'https://www.youtube.com/watch?v=Gi8eokLT2Nw'
   main(yt_url)

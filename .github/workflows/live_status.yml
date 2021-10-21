@@ -1,8 +1,8 @@
 name: Auto CSV Download
 
-on:
-  schedule:
-    - cron: '00 * * * *'
+# on:
+  # schedule:
+    # - cron: '00 * * * *'
 
 jobs:
   build:

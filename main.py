@@ -87,5 +87,5 @@ def main(yt_url):
     # main(yt_url)
 
 if __name__ == '__main__':
-  yt_url = 'https://www.youtube.com/watch?v=Gi8eokLT2Nw'
+  yt_url = 'URLを入力'
   main(yt_url)

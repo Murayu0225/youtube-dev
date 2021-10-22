@@ -43,16 +43,18 @@ def get_chat(chat_id, pageToken, log_file):
     data   = requests.get(url, params=params).json()
     print(data)
 
-    liveStreamingDetails = data['items'][0]['liveStreamingDetails']
-    countViewers = liveStreamingDetails['concurrentViewers']
+    try:
+        for item in data['items']:
+            liveStreamingDetails = item[0]['liveStreamingDetails']
+            countViewers = liveStreamingDetails['concurrentViewers']
 
-    dtNow = datetime.datetime.now()
-    dumpTimes = dtNow.strftime('%Y/%m/%d %H:%M:%S')
+            dtNow = datetime.datetime.now()
+            dumpTimes = dtNow.strftime('%Y/%m/%d %H:%M:%S')
 
-    print(dumpTimes,",",countViewers)
-    with open(log_file, "a") as f:
-        f.write("{0}, {1}\n".format(dumpTimes, countViewers))
-        f.close()
+            print(dumpTimes,",",countViewers)
+            with open(log_file, "a") as f:
+                f.write("{0}, {1}\n".format(dumpTimes, countViewers))
+                f.close()
 
     except:
         pass

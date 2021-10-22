@@ -5,6 +5,7 @@ import settings
 import csv
 
 YT_API_KEY = settings.YT_API
+FILE = test.csv
 # どうしてもActionの動作を見たいので機密事項ですがprintします。すぐにAPIを破棄します。
 # print(YT_API_KEY)
 
@@ -45,15 +46,15 @@ def get_chat(chat_id, pageToken, log_file):
 
     try:
         for item in data['items']:
-            liveStreamingDetails = item[0]['liveStreamingDetails']
-            countViewers = liveStreamingDetails['concurrentViewers']
+            displayMessage = item[0]['displayMessage']
+            message = displayMessage['concurrentViewers']
 
             dtNow = datetime.datetime.now()
             dumpTimes = dtNow.strftime('%Y/%m/%d %H:%M:%S')
 
-            print(dumpTimes,",",countViewers)
-            with open(log_file, "a") as f:
-                f.write("{0}, {1}\n".format(dumpTimes, countViewers))
+            print(dumpTimes,",",message)
+            with open(FILE, "a") as f:
+                f.write("{0}, {1}\n".format(dumpTimes, message))
                 f.close()
 
     except:

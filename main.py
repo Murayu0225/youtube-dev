@@ -23,6 +23,7 @@ def get_chat_id(yt_url):
     if 'activeLiveChatId' in liveStreamingDetails.keys():
         chat_id = liveStreamingDetails['activeLiveChatId']
         print('get_chat_id done!')
+        print(chat_id)
     else:
         chat_id = None
         print('NOT live')
@@ -39,6 +40,7 @@ def get_chat(chat_id, pageToken, log_file):
         params['pageToken'] = pageToken
 
     data   = requests.get(url, params=params).json()
+    print(data)
 
     try:
         for item in data['items']:

@@ -48,8 +48,8 @@ def get_chat(chat_id, pageToken, log_file):
             supChat   = item['snippet']['superChatDetails']
             supStic   = item['snippet']['superStickerDetails']
             log_text  = '[by {}  https://www.youtube.com/channel/{}]\n  {}'.format(usr, channelId, msg)
-            with open(test.txt, 'a') as f:
-                print(log_text, file=f)
+            with open(log_file, 'a') as f:
+                print(msg + usr + supChat + supStic + log_text, file=f)
                 print(log_text)
         print('start : ', data['items'][0]['snippet']['publishedAt'])
         print('end   : ', data['items'][-1]['snippet']['publishedAt'])
@@ -87,5 +87,5 @@ def main(yt_url):
     # main(yt_url)
 
 if __name__ == '__main__':
-  yt_url = 'URLを入力'
+  yt_url = 'https://www.youtube.com/watch?v=85fxRM8nk1Y'
   main(yt_url)

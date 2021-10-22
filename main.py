@@ -2,6 +2,7 @@ import time
 import json
 import requests
 import settings
+import csv
 
 YT_API_KEY = settings.YT_API
 # どうしてもActionの動作を見たいので機密事項ですがprintします。すぐにAPIを破棄します。
@@ -42,19 +43,16 @@ def get_chat(chat_id, pageToken, log_file):
     data   = requests.get(url, params=params).json()
     print(data)
 
-    try:
-        for item in data['items']:
-            channelId = item['snippet']['authorChannelId']
-            msg       = item['snippet']['displayMessage']
-            usr       = item['authorDetails']['displayName']
-            supChat   = item['snippet']['superChatDetails']
-            supStic   = item['snippet']['superStickerDetails']
-            log_text  = '[by {}  https://www.youtube.com/channel/{}]\n  {}'.format(usr, channelId, msg)
-            with open(log_file, 'a') as f:
-                print(log_text, file=f)
-                print(log_text)
-        print('start : ', data['items'][0]['snippet']['publishedAt'])
-        print('end   : ', data['items'][-1]['snippet']['publishedAt'])
+    liveStreamingDetails = data['items'][0]['liveStreamingDetails']
+    countViewers = liveStreamingDetails['concurrentViewers']
+
+    dtNow = datetime.datetime.now()
+    dumpTimes = dtNow.strftime('%Y/%m/%d %H:%M:%S')
+
+    print(dumpTimes,",",countViewers)
+    with open(log_file, "a") as f:
+        f.write("{0}, {1}\n".format(dumpTimes, countViewers))
+        f.close()
 
     except:
         pass

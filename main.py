@@ -5,7 +5,7 @@ import settings
 import csv
 
 YT_API_KEY = settings.YT_API
-FILE = test.csv
+FILE = 'test.csv'
 # どうしてもActionの動作を見たいので機密事項ですがprintします。すぐにAPIを破棄します。
 # print(YT_API_KEY)
 

@@ -3,6 +3,7 @@ import json
 import requests
 import settings
 import csv
+import schedule
 
 YT_API_KEY = settings.YT_API
 FILE = 'test.csv'
@@ -44,27 +45,25 @@ def get_chat(chat_id, pageToken, log_file):
     data   = requests.get(url, params=params).json()
     print(data)
 
-    try:
-        for item in data['items']:
-            displayMessage = item[0]['displayMessage']
-            message = displayMessage['concurrentViewers']
+    displayMessage = item[0]['displayMessage']
+    message = displayMessage['concurrentViewers']
 
-            dtNow = datetime.datetime.now()
-            dumpTimes = dtNow.strftime('%Y/%m/%d %H:%M:%S')
+    dtNow = datetime.datetime.now()
+    dumpTimes = dtNow.strftime('%Y/%m/%d %H:%M:%S')
 
-            print(dumpTimes,",",message)
-            with open(FILE, "a") as f:
-                f.write("{0}, {1}\n".format(dumpTimes, message))
-                f.close()
-
-    except:
-        pass
+    print(dumpTimes,",",message)
+    with open(FILE, "a") as f:
+        f.write("{0}, {1}\n".format(dumpTimes, message))
+        f.close()
 
     return data['nextPageToken']
 
+schedule.every().hour.at(":00").do(job)
+
+
 def main(yt_url):
-    slp_time        = 6 #sec
-    iter_times      = 10 #回
+    slp_time        = 10 #sec
+    iter_times      = 90 #回
     take_time       = slp_time / 60 * iter_times
     print('{}分後　終了予定'.format(take_time))
     print('work on {}'.format(yt_url))

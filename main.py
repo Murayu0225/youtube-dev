@@ -6,7 +6,6 @@ import csv
 import schedule
 
 YT_API_KEY = settings.YT_API
-FILE = '1.txt'
 # どうしてもActionの動作を見たいので機密事項ですがprintします。すぐにAPIを破棄します。
 # print(YT_API_KEY)
 
@@ -50,10 +49,10 @@ def get_chat(chat_id, pageToken, log_file):
             channelId = item['snippet']['authorChannelId']
             msg       = item['snippet']['displayMessage']
             usr       = item['authorDetails']['displayName']
-            #supChat   = item['snippet']['superChatDetails']
-            #supStic   = item['snippet']['superStickerDetails']
+            supChat   = item['snippet']['superChatDetails']
+            supStic   = item['snippet']['superStickerDetails']
             log_text  = '[by {}  https://www.youtube.com/channel/{}]\n  {}'.format(usr, channelId, msg)
-            with open(FILE, 'a') as f:
+            with open(log_file, 'a') as f:
                 print(log_text, file=f)
                 print(log_text)
         print('start : ', data['items'][0]['snippet']['publishedAt'])
@@ -65,8 +64,8 @@ def get_chat(chat_id, pageToken, log_file):
     return data['nextPageToken']
 
 def main(yt_url):
-    slp_time        = 6 #sec
-    iter_times      = 10 #回
+    slp_time        = 10 #sec
+    iter_times      = 720 #回
     take_time       = slp_time / 60 * iter_times
     print('{}分後　終了予定'.format(take_time))
     print('work on {}'.format(yt_url))
@@ -92,5 +91,5 @@ def main(yt_url):
     # main(yt_url)
 
 if __name__ == '__main__':
-  yt_url = 'https://www.youtube.com/watch?v=85fxRM8nk1Y'
+  yt_url = 'https://www.youtube.com/watch?v=Cd-G_t3XVgM'
   main(yt_url)

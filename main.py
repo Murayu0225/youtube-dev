@@ -66,7 +66,7 @@ def get_chat(chat_id, pageToken, log_file):
 
 def main(yt_url):
     slp_time        = 10 #sec
-    iter_times      = 720 #回
+    iter_times      = 340 #回
     take_time       = slp_time / 60 * iter_times
     print('{}分後　終了予定'.format(take_time))
     print('work on {}'.format(yt_url))

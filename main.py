@@ -49,7 +49,8 @@ def get_chat(chat_id, pageToken, log_file):
             supStic   = item['snippet']['superStickerDetails']
             log_text  = '[by {}  https://www.youtube.com/channel/{}]\n  {}'.format(usr, channelId, msg)
             with open(log_file, 'a') as f:
-                print(msg + usr + supChat + supStic + log_text, file=f)
+                f.write(msg + usr + supChat + supStic + log_text, file=f)
+                f.close()
                 print(log_text)
         print('start : ', data['items'][0]['snippet']['publishedAt'])
         print('end   : ', data['items'][-1]['snippet']['publishedAt'])

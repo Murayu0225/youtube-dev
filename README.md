@@ -1,6 +1,6 @@
 挫折しました。
 
-Youtube Liveにてスーパーチャットのみ抽出します。
+Youtube Liveにてチャットのみ抽出します。
 
 Github Actionにて動作してます。
 

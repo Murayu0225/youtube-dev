@@ -58,9 +58,6 @@ def get_chat(chat_id, pageToken, log_file):
 
     return data['nextPageToken']
 
-schedule.every().hour.at(":00").do(job)
-
-
 def main(yt_url):
     slp_time        = 10 #sec
     iter_times      = 90 #回

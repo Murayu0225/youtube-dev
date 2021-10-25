@@ -6,7 +6,7 @@ import csv
 import schedule
 
 YT_API_KEY = settings.YT_API
-FILE = '3.txt'
+FILE = '4.txt'
 # どうしてもActionの動作を見たいので機密事項ですがprintします。すぐにAPIを破棄します。
 # print(YT_API_KEY)
 
@@ -65,7 +65,7 @@ def get_chat(chat_id, pageToken, log_file):
     return data['nextPageToken']
 
 def main(yt_url):
-    slp_time        = 3 #sec
+    slp_time        = 540 #sec
     iter_times      = 10 #回
     take_time       = slp_time / 60 * iter_times
     print('{}分後　終了予定'.format(take_time))
@@ -92,5 +92,5 @@ def main(yt_url):
     # main(yt_url)
 
 if __name__ == '__main__':
-  yt_url = 'https://www.youtube.com/watch?v=fMJuTLMcPbo'
+  yt_url = 'https://www.youtube.com/watch?v=aDf-A8MGFeE'
   main(yt_url)

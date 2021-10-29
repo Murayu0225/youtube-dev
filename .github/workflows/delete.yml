@@ -1,0 +1,45 @@
+name: Delete Live Chat Data (Over 30 Days) 
+
+# 一時的な実行方法
+on:
+  schedule:
+    - cron: '00 12 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+# おまじない
+      - uses: actions/checkout@v2
+
+# Pythonのセットアップ
+      - name: Setup python
+        uses: actions/setup-python@v2 
+        with:
+          python-version: "3.8"
+
+# 必要なパッケージのインストール
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+# チャットを削除するファイルを実行させる
+      - name: Run delete.py
+        run: |
+          python delete.py
+
+# Gitのセットアップ
+      - name: Setup Git
+        run: |
+          git config --local user.name "Murayu0225"
+          git config --local user.email "murayu@assistant-app.com"
+
+# ライブチャットデータを保存
+      - name: Commit and Push
+        run: |
+          git config pull.rebase false
+          git add .
+          git commit -m "Request ready!" || echo "No changes to commit."
+          git pull origin main
+          git push origin main

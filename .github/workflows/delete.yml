@@ -2,8 +2,7 @@ name: Delete Live Chat Data (Over 30 Days)
 
 # 一時的な実行方法
 on:
-  schedule:
-    - cron: '00 12 * * *'
+  workflow_dispatch:
 
 jobs:
   build:

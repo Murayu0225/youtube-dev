@@ -6,7 +6,7 @@ import csv
 import schedule
 
 YT_API_KEY = settings.YT_API
-FILE = '5.txt'
+FILE = '6.txt'
 # どうしてもActionの動作を見たいので機密事項ですがprintします。すぐにAPIを破棄します。
 # print(YT_API_KEY)
 
@@ -92,5 +92,5 @@ def main(yt_url):
     # main(yt_url)
 
 if __name__ == '__main__':
-  yt_url = 'https://www.youtube.com/watch?v=h9b4wMRYpjI'
+  yt_url = 'https://www.youtube.com/watch?v=BRXHVEWb4Rk'
   main(yt_url)

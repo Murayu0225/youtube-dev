@@ -3,7 +3,7 @@ from apiclient.discovery import build
 from apiclient.errors import HttpError
 import settings
 
-API_KEY = settings.YT_APU
+API_KEY = settings.YT_API
 YOUTUBE_API_SERVICE_NAME = 'youtube'
 YOUTUBE_API_VERSION = 'v3'
 CHANNEL_ID = 'NiziUOfficial'

@@ -4,4 +4,3 @@ schedule
 send2trash
 pandas
 build
-HttpError

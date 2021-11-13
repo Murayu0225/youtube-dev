@@ -6,7 +6,7 @@ import settings
 API_KEY = settings.YT_API
 YOUTUBE_API_SERVICE_NAME = 'youtube'
 YOUTUBE_API_VERSION = 'v3'
-CHANNEL_ID = 'NiziUOfficial'
+CHANNEL_ID = 'UCHp2q2i85qt_9nn2H7AvGOw'
 channels = [] #チャンネル情報を格納する配列
 searches = [] #videoidを格納する配列
 videos = [] #各動画情報を格納する配列

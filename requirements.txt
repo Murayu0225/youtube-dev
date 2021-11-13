@@ -2,3 +2,4 @@ requests
 python-dotenv
 schedule
 send2trash
+pandas

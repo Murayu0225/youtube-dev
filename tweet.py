@@ -15,6 +15,7 @@ f.close()
 endgyou = len(alltxt)
 enddata = alltxt[endgyou-1].strip()
 print(enddata)
+formatenddata = "{:,}".format(enddata)
 
 def main():
     t = Twitter(
@@ -26,7 +27,7 @@ def main():
         )
     )
 
-    msg = "現在の、「NiziU(니쥬) 1st Album 「Chopstick」 MV」の再生数は、" +  "{:,}".format(enddata) + "回です。#NiziU"
+    msg = "現在の、「NiziU(니쥬) 1st Album 「Chopstick」 MV」の再生数は、" +  formatenddata + "回です。#NiziU"
     t.statuses.update(status=msg)
 
 if __name__ == "__main__":

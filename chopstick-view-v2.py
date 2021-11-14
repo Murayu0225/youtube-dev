@@ -32,4 +32,4 @@ for result in searches:
 
 videos_report = pd.DataFrame(videos, columns=['viewCount'])
 videos_report['Date'] = tstr
-videos_report.to_csv("chopstick-view.csv", index=None, mode='a', header=False)
+videos_report.to_csv("chopstick-view-v2.csv", index=None, mode='a', header=False)

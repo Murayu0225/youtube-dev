@@ -18,16 +18,16 @@ youtube = build(
     YOUTUBE_API_VERSION,
     developerKey=API_KEY
     )
-   
 
-video_response = youtube.videos().list(
-  part = 'snippet,statistics',
-  id = result
-   ).execute()
+for result in searches:
+    video_response = youtube.videos().list(
+      part = 'snippet,statistics',
+      id = result
+      ).execute()
 
-  for video_result in video_response.get("items", []):
-      if video_result["kind"] == "youtube#video":
-          videos.append([video_result["snippet"]["title"],video_result["statistics"]["viewCount"],video_result["statistics"]["likeCount"],video_result["statistics"]["dislikeCount"],video_result["statistics"]["commentCount"],video_result["snippet"]["publishedAt"]])  
+    for video_result in video_response.get("items", []):
+        if video_result["kind"] == "youtube#video":
+            videos.append([video_result["snippet"]["title"],video_result["statistics"]["viewCount"],video_result["statistics"]["likeCount"],video_result["statistics"]["dislikeCount"],video_result["statistics"]["commentCount"],video_result["snippet"]["publishedAt"]])  
 
 videos_report = pd.DataFrame(videos, columns=['title', 'viewCount', 'likeCount', 'dislikeCount', 'commentCount', 'publishedAt'])
 videos_report.to_csv("chopstick.csv", index=None)

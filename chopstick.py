@@ -33,4 +33,4 @@ videos_report = pd.DataFrame(videos, columns=['title', 'viewCount', 'likeCount',
 videos_report.to_csv("chopstick.csv", index=None)
 
 # channel_report = pd.DataFrame(channels, columns=['title', 'subscriberCount', 'videoCount', 'publishedAt'])
-# channel_report.to_csv("channels_report.csv", index=None)
+# channel_report.to_csv("channels_report.csv", index=None, mode='a', header=False)

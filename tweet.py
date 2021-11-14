@@ -19,10 +19,10 @@ print(enddata)
 def main():
     t = Twitter(
         auth=OAuth(
-            config.TW_TOKEN,
-            config.TW_TOKEN_SECRET,
-            config.TW_CONSUMER_KEY,
-            config.TW_CONSUMER_SECRET,
+            settings.TW_TOKEN,
+            settings.TW_TOKEN_SECRET,
+            settings.TW_CONSUMER_KEY,
+            settings.TW_CONSUMER_SECRET,
         )
     )
 

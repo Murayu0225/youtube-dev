@@ -27,3 +27,8 @@ jobs:
       - name: Run tweet.py
         run: |
           python tweet.py
+        env:
+          TW_CONSUMER_KEY: ${{ secrets.TW_CONSUMER_KEY }}
+          TW_CONSUMER_SECRET: ${{ secrets.TW_CONSUMER_SECRET }}
+          TW_TOKEN: ${{ secrets.TW_TOKEN }}
+          TW_TOKEN_SECRET: ${{ secrets.TW_TOKEN_SECRET }}

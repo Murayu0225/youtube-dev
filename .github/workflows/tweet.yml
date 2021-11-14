@@ -2,7 +2,9 @@ name: Tweet Data
 
 # 一時的な実行方法
 on:
-  workflow_dispatch:
+  schedule:
+    - cron: '* */1 * * *'
+
 
 jobs:
   build:

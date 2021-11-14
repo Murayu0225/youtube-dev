@@ -1,5 +1,5 @@
 import os
-import config
+import settings
 from twitter import Twitter, OAuth
 import pathlib
 import pytz

@@ -15,7 +15,8 @@ f.close()
 endgyou = len(alltxt)
 enddata = alltxt[endgyou-1].strip()
 print(enddata)
-formatenddata = "{:,}".format(enddata)
+intenddata = int(enddata)
+formatenddata = "{:,}".format(intenddata)
 
 def main():
     t = Twitter(

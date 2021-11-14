@@ -3,6 +3,7 @@ from apiclient.discovery import build
 from apiclient.errors import HttpError
 import settings
 import datetime
+import pytz
 
 today = datetime.datetime.now(pytz.timezone('Asia/Tokyo'))
 tstr = today.strftime('%Y/%m/%d %H:%M:%S')

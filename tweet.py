@@ -9,5 +9,5 @@ alltxt = f.readlines()
 f.close()
 
 endgyou = len(alltxt)
-endtxt = alltxt[endgyou-1].strip()
+enddata = alltxt[endgyou-1].strip()
 print(enddata)

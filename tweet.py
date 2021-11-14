@@ -28,7 +28,7 @@ def main():
         )
     )
 
-    msg = "現在の、「NiziU(니쥬) 1st Album 「Chopstick」 MV」の再生数は、" +  formatenddata + "回です。#NiziU"
+    msg = "現在、「NiziU(니쥬) 1st Album 「Chopstick」 MV」の再生回数は、" +  formatenddata + "回です。#NiziU\nhttps://www.youtube.com/watch?v=nCjmXHsRJNY"
     t.statuses.update(status=msg)
 
 if __name__ == "__main__":

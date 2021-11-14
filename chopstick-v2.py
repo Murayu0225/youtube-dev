@@ -35,4 +35,4 @@ for result in searches:
 
 videos_report = pd.DataFrame(videos, columns=['title', 'viewCount', 'likeCount', 'dislikeCount', 'commentCount', 'publishedAt'])
 df['Date'] = tstr
-videos_report.to_csv("chopstick.csv", index=None, mode='a', header=False)
+videos_report.to_csv("chopstick-v2.csv", index=None, mode='a', header=False)

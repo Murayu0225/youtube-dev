@@ -1,6 +1,6 @@
 name: Tweet Data
 
-一時的な実行方法
+# 一時的な実行方法
 on:
   schedule:
     - cron: '* */1 * * *'

@@ -25,5 +25,5 @@ plt.ylabel(input_csv.keys()[1])
 plt.plot(first_column_data, second_column_data, linestyle='solid', marker='o')
 plt.title(title + tstr + '時点')
 
-plt.savefig(./Data/file+".png")
+plt.savefig('./Data/' + file + ".png")
 plt.close()

@@ -10,3 +10,5 @@ pathlib
 twitter
 datetime
 matplotlib
+json
+requests-oauthlib

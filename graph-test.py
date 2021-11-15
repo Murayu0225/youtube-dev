@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 from matplotlib.font_manager import FontProperties
 font_path = "/usr/share/fonts/truetype/migmix/migmix-1p-regular.ttf"
 font_prop = FontProperties(fname=font_path)
-matplotlib.rcParams["font.family"] = font_prop.get_name()
+plt.rcParams["font.family"] = font_prop.get_name()
 
 
 today = datetime.datetime.now(pytz.timezone('Asia/Tokyo'))

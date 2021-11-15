@@ -34,5 +34,8 @@ for result in searches:
         if video_result["kind"] == "youtube#video":
             videos.append([video_result["snippet"]["title"],video_result["statistics"]["viewCount"],video_result["statistics"]["likeCount"],video_result["statistics"]["dislikeCount"],video_result["statistics"]["commentCount"],video_result["snippet"]["publishedAt"]])  
 
+videos_report["date"] = pd.to_datetime(df["date"])
+videos_report = videos_report.set_index("date")
+
 videos_report = pd.DataFrame(videos, columns=['title', 'viewCount', 'likeCount', 'dislikeCount', 'commentCount', 'publishedAt'], index=[tstr])
-videos_report.to_csv("./Data/chopstick-v2.csv", index=None, mode='a', header=False)
+videos_report.to_csv("./Data/chopstick-v2.csv", mode='a', header=False)

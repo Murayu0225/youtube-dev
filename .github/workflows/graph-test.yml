@@ -30,6 +30,8 @@ jobs:
 # チャットを取得するファイルを実行させる
       - name: Run graph-test.py
         run: |
+          apt install -y fonts-migmix
+          fc-list | grep migmix
           python graph-test.py
 
 # Gitのセットアップ

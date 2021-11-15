@@ -1,10 +1,6 @@
-## YouTube Live Chat Client (alpha)
+## YouTube Dev
 
-Youtube Liveにてチャットのみ抽出します。
-
-Github Actionにて動作してます。
-
-将来的には、指定しているチャンネルIDのユーザーがライブであることを判定して動作させる予定です。
+YouTube APIのいろいろを試してます。
 
 ### 課題
 

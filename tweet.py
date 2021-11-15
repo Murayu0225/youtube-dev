@@ -8,7 +8,7 @@ import pytz
 # df = pd.read_csv('chopstick-view.csv')
 # df.tail(1)
 
-f = open('./chopstick-view.csv', 'r')
+f = open('./Data/chopstick-view.csv', 'r')
 alltxt = f.readlines()
 f.close()
 

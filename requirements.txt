@@ -9,4 +9,3 @@ pytz
 pathlib
 twitter
 datetime
-pyplot

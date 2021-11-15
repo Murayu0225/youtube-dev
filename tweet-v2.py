@@ -52,7 +52,7 @@ url_text = "https://api.twitter.com/1.1/statuses/update.json"
 twitter = OAuth1Session(CK, CS, AT, AS)
 
 # 画像投稿
-files = {"media" : open('./Data/' + file '.png', 'rb')}
+files = {"media" : open('./Data/' + file + '.png', 'rb')}
 req_media = twitter.post(url_media, files = files)
 
 # レスポンスを確認

@@ -27,10 +27,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Install fonts
+        run: sudo apt install -y fonts-migmix
 # チャットを取得するファイルを実行させる
       - name: Run graph-test.py
         run: |
-          apt install -y fonts-migmix
           fc-list | grep migmix
           python graph-test.py
 

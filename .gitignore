@@ -1,3 +1,4 @@
 # いらないキャッシュフォルダをcommitしないようにする。
 **/__pycache__/
 .idea/
+Data/*.png

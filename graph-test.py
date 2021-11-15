@@ -8,6 +8,12 @@ import pytz
 import pandas as pd
 import matplotlib.pyplot as plt
 
+from matplotlib.font_manager import FontProperties
+font_path = "/usr/share/fonts/truetype/migmix/migmix-1p-regular.ttf"
+font_prop = FontProperties(fname=font_path)
+matplotlib.rcParams["font.family"] = font_prop.get_name()
+
+
 today = datetime.datetime.now(pytz.timezone('Asia/Tokyo'))
 tstr = today.strftime('%Y年%m月%d日 %H時%M分')
 file = today.strftime('%Y-%m-%d-%H-%M-%S')

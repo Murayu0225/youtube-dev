@@ -31,7 +31,7 @@ jobs:
           python settings.py
           python chopstick-view-v2.py
         env:
-          YT_API: ${{ secrets.YT_API_ENV }}
+          YT_API: ${{ secrets.YT_API_ENV_V2 }}
 
 # Gitのセットアップ
       - name: Setup Git

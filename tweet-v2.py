@@ -34,6 +34,10 @@ plt.ylabel(input_csv.keys()[0])
 
 plt.ticklabel_format(style = 'plain')
 
+
+plt.xticks(rotation=45)
+
+
 ax = plt.plot(first_column_data, second_column_data, linestyle='solid', marker='o')
 plt.title(title + tstr + '時点')
 

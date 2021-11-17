@@ -38,6 +38,10 @@ df = pd.DataFrame({'text': list_text
                   })
 df.to_csv("./Data/niziu-tweet.csv", index=None, mode='a', header=False)
 
+with open('./Data/niziu-tweet.csv',"r") as file:
+    for i in file:
+        print(i.replace('\n',''))
+
 f = open('./Data/niziu-tweet.csv', 'r')
 alltxt = f.readlines()
 f.close()

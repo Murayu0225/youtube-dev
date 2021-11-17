@@ -12,8 +12,6 @@ ACCESS_KEY_SECRET = settings.TW_TOKEN_SECRET
 twitter = OAuth1Session(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_KEY_SECRET)
  
 list_text = []
-list_favorite_count = []
-list_retweet_count = []
 
 url = 'https://api.twitter.com/1.1/statuses/user_timeline.json'
  
@@ -36,10 +34,14 @@ timelines = json.loads(res.text)
  
 for data in timelines:
     list_text.append(data['text'])
-    list_favorite_count.append(data['favorite_count'])
-    list_retweet_count.append(data['retweet_count'])
-df = pd.DataFrame({'text': list_text,
-                   'fav_count': list_favorite_count,
-                   'RT_count': list_retweet_count
+df = pd.DataFrame({'text': list_text
                   })
 df.to_csv("./Data/niziu-tweet.csv", index=None, mode='a', header=False)
+
+f = open('./Data/niziu-tweet.csv', 'r')
+alltxt = f.readlines()
+f.close()
+
+endgyou = len(alltxt)
+enddata = alltxt[endgyou-1].strip()
+print(enddata)

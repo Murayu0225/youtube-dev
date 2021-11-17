@@ -18,12 +18,12 @@ list_retweet_count = []
 url = 'https://api.twitter.com/1.1/statuses/user_timeline.json'
  
 # APIアクセスチェック
-if url.status_code == 200:
-  print('APIステータスチェックに成功しました。')
-else:
-  print('[ERR01]APIステータスチェックにて問題が発生しました。')
-  print('プログラムを終了します。')
-  sys.exit(1)
+# if url.status_code == 200:
+  # print('APIステータスチェックに成功しました。')
+# else:
+  # print('[ERR01]APIステータスチェックにて問題が発生しました。')
+  # print('プログラムを終了します。')
+  # sys.exit(1)
 
 params = {
     'count':1,

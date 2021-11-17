@@ -42,4 +42,4 @@ df = pd.DataFrame({'text': list_text,
                    'fav_count': list_favorite_count,
                    'RT_count': list_retweet_count
                   })
-videos_report.to_csv("./Data/niziu-tweet.csv", index=None, mode='a', header=False)
+df.to_csv("./Data/niziu-tweet.csv", index=None, mode='a', header=False)

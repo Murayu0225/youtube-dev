@@ -12,7 +12,7 @@ import pathlib
 # グラフ生成プログラム
 import pandas as pd
 import matplotlib.pyplot as plt 
-
+import matplotlib.dates as mdates
 
 from matplotlib.font_manager import FontProperties
 font_path = "/usr/share/fonts/truetype/migmix/migmix-1p-regular.ttf"
@@ -35,6 +35,9 @@ plt.ylabel(input_csv.keys()[0])
 
 plt.ticklabel_format(style = 'plain')
 
+plt.gca().xaxis.set_major_formatter(mdates.DateFormatter("%m/%d")) 
+
+plt.gca().xaxis.set_major_formatter(mdates.DayLocator(bymonthday=None, interval=2, tz=None))
 
 plt.xticks(rotation=45)
 

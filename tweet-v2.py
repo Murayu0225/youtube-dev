@@ -11,7 +11,7 @@ import pytz
 # グラフ生成プログラム
 import pandas as pd
 import matplotlib.pyplot as plt 
-
+import matplotlib.dates as mdates
 
 from matplotlib.font_manager import FontProperties
 font_path = "/usr/share/fonts/truetype/migmix/migmix-1p-regular.ttf"
@@ -35,7 +35,9 @@ plt.ylabel(input_csv.keys()[0])
 plt.ticklabel_format(style = 'plain')
 
 
-plt.xticks(rotation=45)
+plt.gcf().autofmt_xdate() 
+
+# plt.xticks(rotation=45)
 
 
 ax = plt.plot(first_column_data, second_column_data, linestyle='solid', antialiased='True')

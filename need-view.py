@@ -30,7 +30,7 @@ for result in searches:
             videos.append([video_result["statistics"]["viewCount"]])
 
 videos_report = pd.DataFrame(videos, columns=['viewCount'])
-videos_report.to_csv("./Data/need-u-view.csv", index=None, mode='a', header=False)
+videos_report.to_csv("./Data/need-view.csv", index=None, mode='a', header=False)
 
 # channel_report = pd.DataFrame(channels, columns=['title', 'subscriberCount', 'videoCount', 'publishedAt'])
 # channel_report.to_csv("channels_report.csv", index=None, mode='a', header=False)

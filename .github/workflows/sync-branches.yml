@@ -14,4 +14,4 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           pr-title: 'chore: merge main into develop'
           head: main
-          pr-labels: auto-merge
+          pr-labels: auto_merge

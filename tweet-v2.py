@@ -39,7 +39,7 @@ plt.ticklabel_format(style = 'plain')
 
 
 
-plt.gca().xaxis.set_major_formatter(mdates.DateFormatter("%y/%m")) 
+plt.gca().xaxis.set_major_formatter(mdates.DateFormatter("%m/%d")) 
 plt.gca().xaxis.set_major_locator(mdates.DayLocator())
 
 plt.xticks(rotation=40)

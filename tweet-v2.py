@@ -37,7 +37,7 @@ plt.ticklabel_format(style = 'plain')
 
 # plt.gcf().autofmt_xdate() 
 
-
+plt.gca().xaxis.set_major_formatter(mdates.DayLocator(bymonthday=None, interval=2, tz=None))
 
 plt.gca().xaxis.set_major_formatter(mdates.DateFormatter("%m/%d")) 
 
@@ -46,7 +46,6 @@ plt.xticks(rotation=40)
 
 ax = plt.plot(first_column_data, second_column_data, linestyle='solid', antialiased='True')
 plt.title(title + tstr + '時点')
-plt.gca().xaxis.set_major_locator(mdates.DayLocator())
 
 plt.savefig('./Data/' + file + ".png")
 plt.close()

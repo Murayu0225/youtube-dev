@@ -81,7 +81,7 @@ media_id = json.loads(req_media.text)['media_id']
 print ("Media ID: %d" % media_id)
 
 # Media ID を付加してテキストを投稿
-params = {'status': "現在、「NiziU(니쥬) 「Need U」 MV」の再生回数は、" +  formatenddata + "回です。#NiziU\n\nhttps://www.youtube.com/watch?v=v9H-bT_76x0", "media_ids": [media_id]}
+params = {'status': "現在、「NiziU(니쥬) 「Need U」 MV」の再生回数は、" +  formatenddata + "回です。\n#NiziU #WithU #NiziU_1stAlbum #U #Need_U\n\nhttps://www.youtube.com/watch?v=v9H-bT_76x0", "media_ids": [media_id]}
 req_media = twitter.post(url_text, params = params)
 
 # 再びレスポンスを確認

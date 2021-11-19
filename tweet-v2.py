@@ -35,9 +35,11 @@ plt.ylabel(input_csv.keys()[0])
 plt.ticklabel_format(style = 'plain')
 
 
-plt.gcf().autofmt_xdate() 
+# plt.gcf().autofmt_xdate() 
 
-# plt.xticks(rotation=45)
+plt.gca().xaxis.set_major_formatter(mdates.DateFormatter("%y/%m")) 
+
+plt.xticks(rotation=40)
 
 
 ax = plt.plot(first_column_data, second_column_data, linestyle='solid', antialiased='True')

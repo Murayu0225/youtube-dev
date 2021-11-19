@@ -1,24 +1,17 @@
-name: Sync branches
+name: Sync master/develop branches
 
 on:
-  schedule:
-    - cron: '* * */1 * *'
+  workflow_dispatch:
+  # schedule:
+   #  - cron: '* * */1 * *'
 
 jobs:
-  sync-branches:
+  create_sync_pull_request:
     runs-on: ubuntu-latest
-    name: Syncing branches
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Set up Node
-        uses: actions/setup-node@v1
+      - uses: dequelabs/action-sync-branches@v1
         with:
-          node-version: 12
-      - name: Opening pull request
-        id: pull
-        uses: tretuna/sync-branches@1.4.0
-        with:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          FROM_BRANCH: "main"
-          TO_BRANCH: "develop"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          pr-title: 'chore: merge main into develop'
+          head: main
+          pr-labels: auto-merge

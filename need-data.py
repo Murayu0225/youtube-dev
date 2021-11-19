@@ -11,7 +11,7 @@ tstr = today.strftime('%Y/%m/%d %H:%M:%S')
 API_KEY = settings.YT_API
 YOUTUBE_API_SERVICE_NAME = 'youtube'
 YOUTUBE_API_VERSION = 'v3'
-searches = ['nCjmXHsRJNY']
+searches = ['v9H-bT_76x0']
 videos = []
 
 youtube = build(

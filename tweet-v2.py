@@ -38,7 +38,7 @@ plt.ticklabel_format(style = 'plain')
 plt.xticks(rotation=45)
 
 
-ax = plt.plot(first_column_data, second_column_data, linestyle='solid', marker='o')
+ax = plt.plot(first_column_data, second_column_data, linestyle='solid', antialiased='True')
 plt.title(title + tstr + '時点')
 
 plt.savefig('./Data/' + file + ".png")

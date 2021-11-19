@@ -1,9 +1,12 @@
 name: Need U Tweet
 
 # 一時的な実行方法
+# on:
+  # schedule:
+    # - cron: '* */1 * * *'
+
 on:
-  schedule:
-    - cron: '* */1 * * *'
+  workflow_dispatch:
 
 jobs:
   build:
@@ -18,9 +21,6 @@ jobs:
         with:
           python-version: "3.8"
 
-      - name: Install fonts
-        run: sudo apt install -y fonts-migmi
-
 # 必要なパッケージのインストール
       - name: Install dependencies
         run: |
@@ -28,6 +28,9 @@ jobs:
           pip install --upgrade google-api-python-client
           pip install --upgrade pathlib
           pip install -r requirements.txt
+
+      - name: Install fonts
+        run: sudo apt install -y fonts-migmi
 
 # チャットを取得するファイルを実行させる
       - name: Run settings.py & need-tweet.py

@@ -1,9 +1,9 @@
 name: Need U Tweet
 
 # 一時的な実行方法
-on:
-  schedule:
-    - cron: '* */1 * * *'
+# on:
+  # schedule:
+    # - cron: '* */1 * * *'
 
 jobs:
   build:

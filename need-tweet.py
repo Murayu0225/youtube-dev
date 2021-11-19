@@ -46,7 +46,7 @@ plt.savefig('./Data/' + file + ".png")
 plt.close()
 
 
-f = open('./Data/need-u-view.csv', 'r')
+f = open('./Data/need-view.csv', 'r')
 alltxt = f.readlines()
 f.close()
 

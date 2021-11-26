@@ -40,8 +40,8 @@ jobs:
 # Gitのセットアップ
       - name: Setup Git
         run: |
-          git config --local user.name "Murayu0225"
-          git config --local user.email "murayu@assistant-app.com"
+          git config --local user.name "GitHub Action"
+          git config --local user.email "action@github.com"
 
 # ライブチャットデータを保存
       - name: Commit and Push

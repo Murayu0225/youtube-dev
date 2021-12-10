@@ -13,22 +13,25 @@ import pandas as pd
 import matplotlib.pyplot as plt 
 import matplotlib.dates as mdates
 
+
+# 日本語設定
 from matplotlib.font_manager import FontProperties
 font_path = "/usr/share/fonts/truetype/migmix/migmix-1p-regular.ttf"
 font_prop = FontProperties(fname=font_path)
 plt.rcParams["font.family"] = font_prop.get_name()
 
+# タイトル設定
 today = datetime.datetime.now(pytz.timezone('Asia/Tokyo'))
 tstr = today.strftime('%Y年%m月%d日 %H時%M分')
 file = today.strftime('%Y-%m-%d-%H-%M-%S')
 title = ('NiziU-Chopstick 再生回数')
-
 
 # 再生履歴のcsvを読み込む
 input_csv = pd.read_csv('./Data/chopstick-view-v2.csv')
 first_column_data = input_csv[input_csv.keys()[1]]
 second_column_data = input_csv[input_csv.keys()[0]]
 
+# 軸指定
 plt.xlabel(input_csv.keys()[1])
 plt.ylabel(input_csv.keys()[0])
 
@@ -37,14 +40,18 @@ plt.ticklabel_format(style = 'plain')
 
 # plt.gcf().autofmt_xdate() 
 
-plt.gca().xaxis.set_major_formatter(mdates.DateFormatter("%m/%d")) 
+# plt.gca().xaxis.set_major_formatter(mdates.DayLocator(bymonthday=None, interval=2, tz=None))
 
-plt.gca().xaxis.set_major_formatter(mdates.DayLocator(bymonthday=None, interval=2, tz=None))
+# グラフ出力時にx軸が重なるのを防止する
+plt.gca().xaxis.set_major_formatter(mdates.DayLocator)
+
+plt.gca().xaxis.set_major_formatter(mdates.DateFormatter("%m/%d")) 
 
 plt.xticks(rotation=40)
 
-
+# プロット
 ax = plt.plot(first_column_data, second_column_data, linestyle='solid', antialiased='True')
+# タイトル書き込み
 plt.title(title + tstr + '時点')
 
 plt.savefig('./Data/' + file + ".png")

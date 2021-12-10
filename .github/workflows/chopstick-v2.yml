@@ -5,8 +5,8 @@ name: Request YouTube Data (Chopstick v2)
   # schedule:
     # - cron: '* */1 * * *'
 
-# on:
-  # workflow_dispatch:
+on:
+  workflow_dispatch:
 
 jobs:
   build:

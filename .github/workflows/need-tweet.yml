@@ -36,18 +36,3 @@ jobs:
           TW_CONSUMER_SECRET: ${{ secrets.TWITTER_API_SECRET_KEY }}
           TW_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
           TW_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
-
-# Gitのセットアップ
-      - name: Setup Git
-        run: |
-          git config --local user.name "GitHub Action"
-          git config --local user.email "action@github.com"
-
-# ライブチャットデータを保存
-      - name: Commit and Push
-        run: |
-          git config pull.rebase false
-          git add .
-          git commit -m "Chopstick data was Downloaded!" || echo "No changes to commit."
-          git pull origin main
-          git push origin main

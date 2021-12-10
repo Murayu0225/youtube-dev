@@ -1,9 +1,10 @@
 name: Sync master/develop branches
 
+# コンフリクトするため停止
 on:
-  # workflow_dispatch:
-  schedule:
-    - cron: '* * */1 * *'
+  workflow_dispatch:
+  # schedule:
+    # - cron: '* * */1 * *'
 
 jobs:
   create_sync_pull_request:

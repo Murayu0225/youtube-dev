@@ -5,8 +5,8 @@ name: Tweet Data
   # schedule:
     # - cron: '00 * * * *'
 
-# on:
-  # workflow_dispatch:
+on:
+  workflow_dispatch:
 
 
 jobs:

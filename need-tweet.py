@@ -26,10 +26,14 @@ title = ('NiziU-Need U 再生回数')
 
 
 # 再生履歴のcsvを読み込む
-input_csv = pd.read_csv('./Data/need-u-view-data.csv')
+loaddate_str = '%Y/%m/%d %H:%M:%S'
+str_to_date = lambda date: pd.datetime.strptime(date, loaddate_str)
+input_csv = pd.read_csv('./Data/need-u-view-data.csv', date_parser=str_to_date)
 first_column_data = input_csv[input_csv.keys()[1]]
 second_column_data = input_csv[input_csv.keys()[0]]
 
+# x[1]
+# y[0]
 plt.xlabel(input_csv.keys()[1])
 plt.ylabel(input_csv.keys()[0])
 

@@ -2,7 +2,7 @@
 name: "機能リクエスト / Feature request"
 about: "本プロジェクトへのアイデアを提案しましょう / Suggest an idea for this project"
 title: ""
-labels: ""
+labels: "waiting-confirmation"
 assignees: ""
 ---
 

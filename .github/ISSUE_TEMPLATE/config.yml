@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: その他
+    url: https://assistant-app.com/contact/
+    about: 技術的な内容以外のご要望については、本リポジトリでは扱いません。リンク先のお問い合わせフォームよりお願いします。

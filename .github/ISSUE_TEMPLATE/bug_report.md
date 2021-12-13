@@ -33,7 +33,6 @@ assignees: ""
 
 ## 動作環境 / Environments
 
-- デバイス：
 - OS：
 
 ## その他 / Additional context

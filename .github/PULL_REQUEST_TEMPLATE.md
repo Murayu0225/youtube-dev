@@ -46,14 +46,6 @@
 
 ## 検証方法 / How to test
 
-### コードの入手 / Get the code
-
-```
-git clone [repo-address]
-cd [repo-name]
-git checkout [branch-name]
-dotnet restore
-```
 
 ### コードの検証 / Test the code
 

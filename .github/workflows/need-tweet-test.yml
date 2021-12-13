@@ -1,12 +1,12 @@
-name: Need U Tweet
+name: Need U Tweet (Test mode)
 
 # 一時的な実行方法
-on:
-  schedule:
-    - cron: '* * */1 * *'
-
 # on:
-  # workflow_dispatch:
+  # schedule:
+    # - cron: '* * */1 * *'
+
+on:
+  workflow_dispatch:
 
 
 jobs:
@@ -34,6 +34,7 @@ jobs:
 # チャットを取得するファイルを実行させる
       - name: Run need-tweet.py
         run: |
+          cd ./tests
           python need-tweet.py
         env:
           TW_CONSUMER_KEY: ${{ secrets.TWITTER_API_KEY }}

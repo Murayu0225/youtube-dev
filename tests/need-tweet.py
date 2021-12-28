@@ -7,7 +7,7 @@ import pandas as pd
 import os
 import datetime
 import pytz
-import pathlib
+from pathlib import Path
 
 # グラフ生成プログラム
 import pandas as pd

@@ -1,9 +1,12 @@
 name: Request YouTube A-Data (Need U)
 
 # 一時的な実行方法
+# on:
+  # schedule:
+    # - cron: '*/10 * * * *'
+
 on:
-  schedule:
-    - cron: '*/10 * * * *'
+  workflow_dispatch:
 
 jobs:
   build:

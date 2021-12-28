@@ -24,6 +24,10 @@ tstr = today.strftime('%Y年%m月%d日 %H時%M分')
 file = today.strftime('%Y-%m-%d-%H-%M-%S')
 title = ('[TEST MODE]NiziU-Need U 再生回数')
 
+path = Path(__file__).parent
+path /= '../../Data'
+
+print(path.resolve())
 
 # 再生履歴のcsvを読み込む
 loaddate_str = '%Y/%m/%d %H:%M:%S'

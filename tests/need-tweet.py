@@ -24,15 +24,15 @@ tstr = today.strftime('%Y年%m月%d日 %H時%M分')
 file = today.strftime('%Y-%m-%d-%H-%M-%S')
 title = ('[TEST MODE]NiziU-Need U 再生回数')
 
-path = Path(__file__).parent
-path /= '../../Data'
+# path = Path(__file__).parent
+# path /= '../../Data'
 
-print(path.resolve())
+# print(path.resolve())
 
 # 再生履歴のcsvを読み込む
 loaddate_str = '%Y/%m/%d %H:%M:%S'
 str_to_date = lambda date: pd.datetime.strptime(date, loaddate_str)
-input_csv = pd.read_csv('../../Data/need-u-view-data.csv', date_parser=str_to_date)
+input_csv = pd.read_csv('/home/runner/work/youtube-dev/Data/need-u-view-data.csv', date_parser=str_to_date)
 first_column_data = input_csv[input_csv.keys()[1]]
 second_column_data = input_csv[input_csv.keys()[0]]
 
@@ -53,11 +53,11 @@ plt.xticks(rotation=45)
 ax = plt.plot(first_column_data, second_column_data, linestyle='solid')
 plt.title(title + tstr + '時点')
 
-plt.savefig('../../Data/' + file + ".png")
+plt.savefig('/home/runner/work/youtube-dev/Data/' + file + ".png")
 plt.close()
 
 
-f = open('../../Data/need-view.csv', 'r')
+f = open('/home/runner/work/youtube-dev/Data/need-view.csv', 'r')
 alltxt = f.readlines()
 f.close()
 

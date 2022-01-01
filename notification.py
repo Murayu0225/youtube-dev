@@ -85,7 +85,7 @@ if not check:
   print('Not found.')
 else:
   print('新規投稿あり')
-  for i in range(len(check))
+  for i in range(len(check)):
     twitter = OAuth1Session(CK, CS, AT, AS)
     params = {'status': "NiziU OfficialさんがYouTubeに新規投稿をしました！\n#NiziU\n\nhttps://www.youtube.com/watch?v=" + check(i)}
     req_media = twitter.post(url_text, params = params)

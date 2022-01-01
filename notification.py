@@ -67,7 +67,7 @@ for result in searches:
 searches_report = pd.DataFrame(searches)
 searches_report.to_csv("./Data/id.csv", index=None)
 
-check = set(userdicdf) ^ set(searches)
+check = set(userdicdf) ^ set(searches.t)
 check = list(check)
 print(check)
 

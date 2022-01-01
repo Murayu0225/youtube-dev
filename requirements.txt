@@ -13,3 +13,4 @@ jsons
 requests-oauthlib
 tweepy
 oauth2
+define_client

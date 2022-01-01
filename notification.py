@@ -4,6 +4,7 @@ from apiclient.errors import HttpError
 import settings
 from requests_oauthlib import OAuth1Session
 import itertools
+import json
 
 userdicdf = pd.read_csv('./Data/id.csv', sep=',', encoding='utf-8', index_col=False, header=None)
 id_list = list(userdicdf[0])
@@ -86,7 +87,7 @@ if not check:
 else:
   print('Start Tweet.')
   for id in check:
-    params = {'status': "[TEST MODE] NiziU OfficialさんがYouTubeに新規投稿をしました！\n#NiziU\n\nhttps://www.youtube.com/watch?v="}
+    params = {'status': "[TEST MODE] NiziU OfficialさんがYouTubeに新規投稿をしました！\n#NiziU\n\nhttps://www.youtube.com/watch?v=" + id}
     req_media = twitter.post(url_text, params = params)
 
 videos_report = pd.DataFrame(videos, columns=['title', 'viewCount', 'likeCount', 'commentCount', 'publishedAt'])

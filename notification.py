@@ -43,6 +43,7 @@ while True:
     for search_result in search_response.get("items", []):
         if search_result["id"]["kind"] == "youtube#video":
             searches.append(search_result["id"]["videoId"])
+            videos.append(search_result["id"]["videoId"])
 
     try:
         nextPagetoken =  search_response["nextPageToken"]
@@ -57,7 +58,7 @@ for result in searches:
 
     for video_result in video_response.get("items", []):
         if video_result["kind"] == "youtube#video":
-            videos.append(search_result["id"]["videoId"],[video_result["snippet"]["title"],video_result["statistics"]["viewCount"],video_result["statistics"]["likeCount"],video_result["statistics"]["commentCount"],video_result["snippet"]["publishedAt"]])  
+            videos.append([video_result["snippet"]["title"],video_result["statistics"]["viewCount"],video_result["statistics"]["likeCount"],video_result["statistics"]["commentCount"],video_result["snippet"]["publishedAt"]])  
 
 videos_report = pd.DataFrame(videos, columns=['id', 'title', 'viewCount', 'likeCount', 'commentCount', 'publishedAt'])
 videos_report.to_csv("./Data/videos_report.csv", index=None)

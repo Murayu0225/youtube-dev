@@ -2,6 +2,7 @@ import pandas as pd
 from apiclient.discovery import build
 from apiclient.errors import HttpError
 import settings
+from requests_oauthlib import OAuth1Session
 
 userdicdf = pd.read_csv('./Data/id.csv', sep=',', encoding='utf-8', index_col=False, header=None)
 list(userdicdf[0])
@@ -16,6 +17,12 @@ searches = []
 videos = []
 nextPagetoken = None
 nextpagetoken = None
+CK = settings.TW_CONSUMER_KEY
+CS = settings.TW_CONSUMER_SECRET
+AT = settings.TW_TOKEN
+AS = settings.TW_TOKEN_SECRET
+url_media = "https://upload.twitter.com/1.1/media/upload.json"
+url_text = "https://api.twitter.com/1.1/statuses/update.json"
 
 youtube = build(
     YOUTUBE_API_SERVICE_NAME, 
@@ -40,8 +47,8 @@ while True:
       part = "snippet",
       channelId = CHANNEL_ID,
       maxResults = 50,
-      order = "date", #日付順にソート
-      pageToken = nextpagetoken #再帰的に指定
+      order = "date",
+      pageToken = nextpagetoken
       ).execute()  
 
     for search_result in search_response.get("items", []):
@@ -78,6 +85,15 @@ if not check:
   print('Not found.')
 else:
   print('新規投稿あり')
+  for i in range(len(check))
+    twitter = OAuth1Session(CK, CS, AT, AS)
+    params = {'status': "NiziU OfficialさんがYouTubeに新規投稿をしました！\n#NiziU\n\nhttps://www.youtube.com/watch?v=" + check(i)}
+    req_media = twitter.post(url_text, params = params)
+
+    if req_media.status_code != 200:
+      print ("テキストアップデート失敗: %s", req_text.text)
+    else:
+      print ("OK" + str(i) + '回実行しました。')
 
 videos_report = pd.DataFrame(videos, columns=['title', 'viewCount', 'likeCount', 'commentCount', 'publishedAt'])
 videos_report.to_csv("./Data/videos_report.csv", index=None)

@@ -76,15 +76,16 @@ CS = settings.TW_CONSUMER_SECRET
 AT = settings.TW_TOKEN
 AS = settings.TW_TOKEN_SECRET
 
+url_text = "https://api.twitter.com/1.1/statuses/update.json"
+
+
 if not check:
   print('Not found.')
 else:
   print('新規投稿あり')
   for id in check:
-    auth = tweepy.OAuthHandler(CK, CS)
-    auth.set_access_token(AT, AS)
-    api = tweepy.API(auth)
-    api.update_status("NiziU OfficialさんがYouTubeに新規投稿をしました！\n#NiziU\n\nhttps://www.youtube.com/watch?v=" + str(id))
+    params = {'status': "NiziU OfficialさんがYouTubeに新規投稿をしました！\n#NiziU\n\nhttps://www.youtube.com/watch?v=" + str(id)}
+    req_media = twitter.post(url_text, params = params)
 
 videos_report = pd.DataFrame(videos, columns=['title', 'viewCount', 'likeCount', 'commentCount', 'publishedAt'])
 videos_report.to_csv("./Data/videos_report.csv", index=None)

@@ -74,6 +74,7 @@ print(check)
 if not check:
   print('Not found.')
 else:
+  print('Found New POST!')
   print('Start Tweet.')
   for id in check:   
     t = Twitter(auth = OAuth(settings.TW_TOKEN, settings.TW_TOKEN_SECRET, settings.TW_CONSUMER_KEY, settings.TW_CONSUMER_SECRET))

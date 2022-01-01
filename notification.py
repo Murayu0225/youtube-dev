@@ -62,7 +62,7 @@ for result in searches:
 searches_report = pd.DataFrame(searches, columns=['id'])
 searches_report.to_csv("./Data/id.csv", index=None)
 
-videos_report = pd.DataFrame(videos, columns=['id', 'title', 'viewCount', 'likeCount', 'commentCount', 'publishedAt'])
+videos_report = pd.DataFrame(videos, columns=['title', 'viewCount', 'likeCount', 'commentCount', 'publishedAt'])
 videos_report.to_csv("./Data/videos_report.csv", index=None)
 
 channel_report = pd.DataFrame(channels, columns=['title', 'subscriberCount', 'videoCount', 'publishedAt'])

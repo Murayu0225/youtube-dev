@@ -2,7 +2,6 @@ import pandas as pd
 from apiclient.discovery import build
 from apiclient.errors import HttpError
 import settings
-from requests_oauthlib import OAuth1Session
 import tweepy
 
 userdicdf = pd.read_csv('./Data/id.csv', sep=',', encoding='utf-8', index_col=False, header=None)
@@ -85,7 +84,6 @@ else:
     auth.set_access_token(access_token, access_token_secret)
     api = tweepy.API(auth)
     api.update_status("NiziU OfficialさんがYouTubeに新規投稿をしました！\n#NiziU\n\nhttps://www.youtube.com/watch?v=" + str(id))
-    print ("status:OK. " + str(i) + '回実行しました。')
 
 videos_report = pd.DataFrame(videos, columns=['title', 'viewCount', 'likeCount', 'commentCount', 'publishedAt'])
 videos_report.to_csv("./Data/videos_report.csv", index=None)

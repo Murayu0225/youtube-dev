@@ -71,17 +71,18 @@ check = set(userdicdf) ^ set(searches)
 check = list(check)
 print(check)
 
+CK = settings.TW_CONSUMER_KEY
+CS = settings.TW_CONSUMER_SECRET
+AT = settings.TW_TOKEN
+AS = settings.TW_TOKEN_SECRET
+
 if not check:
   print('Not found.')
 else:
   print('新規投稿あり')
   for id in check:
-    CK = settings.TW_CONSUMER_KEY
-    CS = settings.TW_CONSUMER_SECRET
-    AC = settings.TW_TOKEN
-    AS = settings.TW_TOKEN_SECRET
     auth = tweepy.OAuthHandler(CK, CS)
-    auth.set_access_token(AC, AS)
+    auth.set_access_token(AT, AS)
     api = tweepy.API(auth)
     api.update_status("NiziU OfficialさんがYouTubeに新規投稿をしました！\n#NiziU\n\nhttps://www.youtube.com/watch?v=" + str(id))
 

@@ -18,8 +18,8 @@ def define_client_proc():
 
 def get_tweets_proc(client,user_name):
     nnx = 10
-    url_base = "https://api.twitter.com/1.1/statuses/user_timeline.json?user_name="
-    url = url_base + user_name + "&count=" + str(nnx)
+    url_base = "https://api.twitter.com/1.1/statuses/user_timeline.json?user_id="
+    url = url_base + user_id + "&count=" + str(nnx)
     array_aa = []
     response, data = client.request(url)
     if response.status == 200:
@@ -34,11 +34,11 @@ def get_tweets_proc(client,user_name):
     return  array_aa
 sys.stderr.write("*** 開始 ***\n")
 
-user_name = "NiziU__official"
+user_id = "1110738092493668352"
 
 client = define_client_proc()
 
-array_aa = get_tweets_proc(client,user_name)
+array_aa = get_tweets_proc(client,user_id)
 
 sys.stderr.write("len(array_aa) = %d\n" % len(array_aa))
 

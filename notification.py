@@ -6,8 +6,7 @@ from requests_oauthlib import OAuth1Session
 import itertools
 
 userdicdf = pd.read_csv('./Data/id.csv', sep=',', encoding='utf-8', index_col=False, header=None)
-list(userdicdf[0])
-print(userdicdf)
+id_list = list(userdicdf[0])
 
 API_KEY = settings.YT_API
 YOUTUBE_API_SERVICE_NAME = 'youtube'
@@ -70,7 +69,7 @@ for result in searches:
 searches_report = pd.DataFrame(searches)
 searches_report.to_csv("./Data/id.csv", index=None)
 
-check = set(userdicdf) ^ set(searches)
+check = set(id_list) ^ set(searches)
 check = list(check)
 print(check)
 
@@ -86,7 +85,7 @@ twitter = OAuth1Session(CK, CS, AT, AS)
 if not check:
   print('Not found.')
 else:
-  print('新規投稿あり')
+  print('Start Tweet.')
   for id in check:
     print(check[id])
     params = {'status': "[TEST MODE] NiziU OfficialさんがYouTubeに新規投稿をしました！\n#NiziU\n\nhttps://www.youtube.com/watch?v="}

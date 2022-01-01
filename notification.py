@@ -54,7 +54,8 @@ while True:
     except:
         break
 
-iter = list(itertools.chain.from_iterable(searches))
+print(searches)
+# iter = list(itertools.chain.from_iterable(searches))
 
 for result in searches:
     video_response = youtube.videos().list(
@@ -69,7 +70,7 @@ for result in searches:
 searches_report = pd.DataFrame(searches)
 searches_report.to_csv("./Data/id.csv", index=None)
 
-check = set(userdicdf) ^ set(iter)
+check = set(userdicdf) ^ set(searches)
 check = list(check)
 print(check)
 

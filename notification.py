@@ -3,6 +3,7 @@ from apiclient.discovery import build
 from apiclient.errors import HttpError
 import settings
 from requests_oauthlib import OAuth1Session
+import itertools
 
 userdicdf = pd.read_csv('./Data/id.csv', sep=',', encoding='utf-8', index_col=False, header=None)
 list(userdicdf[0])
@@ -48,12 +49,13 @@ while True:
     for search_result in search_response.get("items", []):
         if search_result["id"]["kind"] == "youtube#video":
             searches.append(search_result["id"]["videoId"])
-
     try:
         nextPagetoken =  search_response["nextPageToken"]
     except:
         break
-   
+
+iter = list(itertools.chain.from_iterable(searches))
+
 for result in searches:
     video_response = youtube.videos().list(
       part = 'snippet,statistics',
@@ -67,7 +69,7 @@ for result in searches:
 searches_report = pd.DataFrame(searches)
 searches_report.to_csv("./Data/id.csv", index=None)
 
-check = set(userdicdf) ^ set(searches.T)
+check = set(userdicdf) ^ set(iter)
 check = list(check)
 print(check)
 

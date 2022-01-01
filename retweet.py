@@ -1,7 +1,20 @@
 import sys
 import json
 import oauth2 as oauth
-from define_client import define_client_proc
+import settings
+from requests_oauthlib import OAuth1Session
+
+def define_client_proc():
+    CONSUMER_KEY = settings.TW_CONSUMER_KEY
+    CONSUMER_SECRET = settings.TW_CONSUMER_SECRET
+    ACCESS_TOKEN = settings.TW_TOKEN
+    ACCESS_TOKEN_SECRET = settings.TW_TOKEN_SECRET
+    twitter = OAuth1Session(
+        CONSUMER_KEY,
+        CONSUMER_SECRET,
+        ACCESS_TOKEN,
+        ACCESS_TOKEN_SECRET)
+    return twitter
 
 def get_tweets_proc(client,user_name):
     nnx = 10

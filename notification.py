@@ -84,9 +84,8 @@ if not check:
   print('Not found.')
 else:
   print('新規投稿あり')
-  for id in check:
-    
-    api.update_status("NiziU OfficialさんがYouTubeに新規投稿をしました！\n#NiziU\n\nhttps://www.youtube.com/watch?v=" + id)
+  for id in check:    
+    api.update_status("NiziU OfficialさんがYouTubeに新規投稿をしました！\n#NiziU\n\nhttps://www.youtube.com/watch?v=" + str(id))
     print ("status:OK. " + str(i) + '回実行しました。')
 
 videos_report = pd.DataFrame(videos, columns=['title', 'viewCount', 'likeCount', 'commentCount', 'publishedAt'])

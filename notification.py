@@ -54,7 +54,6 @@ while True:
         break
 
 print(searches)
-# iter = list(itertools.chain.from_iterable(searches))
 
 for result in searches:
     video_response = youtube.videos().list(
@@ -87,7 +86,6 @@ if not check:
 else:
   print('Start Tweet.')
   for id in check:
-    print(check[id])
     params = {'status': "[TEST MODE] NiziU OfficialさんがYouTubeに新規投稿をしました！\n#NiziU\n\nhttps://www.youtube.com/watch?v="}
     req_media = twitter.post(url_text, params = params)
 

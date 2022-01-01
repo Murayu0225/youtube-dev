@@ -11,9 +11,9 @@ API_KEY = settings.YT_API
 YOUTUBE_API_SERVICE_NAME = 'youtube'
 YOUTUBE_API_VERSION = 'v3'
 CHANNEL_ID = 'UCHp2q2i85qt_9nn2H7AvGOw'
-channels = [] #チャンネル情報を格納する配列
-searches = [] #videoidを格納する配列
-videos = [] #各動画情報を格納する配列
+channels = []
+searches = []
+videos = []
 nextPagetoken = None
 nextpagetoken = None
 
@@ -70,7 +70,14 @@ userdicdf_load = pd.read_csv('./Data/id.csv', sep=',', encoding='utf-8', index_c
 list(userdicdf_load[0])
 print(userdicdf_load)
 
-print(set(userdicdf) ^ set(userdicdf_load))
+check = set(userdicdf) ^ set(userdicdf_load)
+check = list(check)
+print(check)
+
+if not check:
+  print('Not found.')
+else:
+  print('新規投稿あり')
 
 videos_report = pd.DataFrame(videos, columns=['title', 'viewCount', 'likeCount', 'commentCount', 'publishedAt'])
 videos_report.to_csv("./Data/videos_report.csv", index=None)

@@ -66,6 +66,12 @@ for result in searches:
 searches_report = pd.DataFrame(searches)
 searches_report.to_csv("./Data/id.csv", index=None)
 
+userdicdf_load = pd.read_csv('./Data/id.csv', sep=',', encoding='utf-8', index_col=False, header=None)
+list(userdicdf_load[0])
+print(userdicdf_load)
+
+print(set(userdicdf) ^ set(userdicdf_load))
+
 videos_report = pd.DataFrame(videos, columns=['title', 'viewCount', 'likeCount', 'commentCount', 'publishedAt'])
 videos_report.to_csv("./Data/videos_report.csv", index=None)
 

@@ -85,7 +85,8 @@ if not check:
 else:
   print('新規投稿あり')
   for id in check:
-    params = {'status': "NiziU OfficialさんがYouTubeに新規投稿をしました！\n#NiziU\n\nhttps://www.youtube.com/watch?v=" + str(id)}
+    print(str(id))
+    params = {'status': "[TEST MODE] NiziU OfficialさんがYouTubeに新規投稿をしました！\n#NiziU\n\nhttps://www.youtube.com/watch?v="}
     req_media = twitter.post(url_text, params = params)
 
 videos_report = pd.DataFrame(videos, columns=['title', 'viewCount', 'likeCount', 'commentCount', 'publishedAt'])

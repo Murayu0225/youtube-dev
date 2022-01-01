@@ -65,7 +65,7 @@ for result in searches:
             videos.append([video_result["snippet"]["title"],video_result["statistics"]["viewCount"],video_result["statistics"]["likeCount"],video_result["statistics"]["commentCount"],video_result["snippet"]["publishedAt"]])  
 
 searches_report = pd.DataFrame(searches)
-searches_report.to_csv("./Data/id.csv", index=None)
+searches_report.to_csv("./Data/id.csv", index=None, header=None)
 
 check = set(id_list) ^ set(searches)
 check = list(check)

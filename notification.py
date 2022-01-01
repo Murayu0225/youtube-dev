@@ -3,7 +3,8 @@ from apiclient.discovery import build
 from apiclient.errors import HttpError
 import settings
 
-csv_input = pd.read_csv(filepath_or_buffer='./Data/id.csv').values.tolist()
+csv_input = pd.read_csv(filepath_or_buffer='./Data/id.csv')
+csv_input = csv_input.apply(lambda d: d.str.strip())
 print(csv_input)
 
 API_KEY = settings.YT_API

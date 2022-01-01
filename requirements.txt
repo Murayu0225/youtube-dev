@@ -12,4 +12,3 @@ matplotlib
 jsons
 requests-oauthlib
 tweepy
-itertools

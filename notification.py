@@ -2,9 +2,7 @@ import pandas as pd
 from apiclient.discovery import build
 from apiclient.errors import HttpError
 import settings
-from requests_oauthlib import OAuth1Session
-import itertools
-import json
+from twitter import Twitter, OAuth
 
 userdicdf = pd.read_csv('./Data/id.csv', sep=',', encoding='utf-8', index_col=False, header=None)
 id_list = list(userdicdf[0])
@@ -73,22 +71,21 @@ check = set(id_list) ^ set(searches)
 check = list(check)
 print(check)
 
-CK = settings.TW_CONSUMER_KEY
-CS = settings.TW_CONSUMER_SECRET
-AT = settings.TW_TOKEN
-AS = settings.TW_TOKEN_SECRET
-
-url_text = "https://api.twitter.com/1.1/statuses/update.json"
-
-twitter = OAuth1Session(CK, CS, AT, AS)
-
 if not check:
   print('Not found.')
 else:
   print('Start Tweet.')
   for id in check:
-    params = {'status': "[TEST MODE] NiziU OfficialさんがYouTubeに新規投稿をしました！\n#NiziU\n\nhttps://www.youtube.com/watch?v=" + id}
-    req_media = twitter.post(url_text, params = params)
+  t = Twitter(
+      auth=OAuth(
+          settings.TW_TOKEN,
+          settings.TW_TOKEN_SECRET,
+          settings.TW_CONSUMER_KEY,
+          settings.TW_CONSUMER_SECRET,
+      )
+  )
+  msg = "[TEST MODE] NiziU OfficialさんがYouTubeに新規投稿をしました！\n#NiziU\n\nhttps://www.youtube.com/watch?v=" + id
+  t.statuses.update(status=msg)
 
 videos_report = pd.DataFrame(videos, columns=['title', 'viewCount', 'likeCount', 'commentCount', 'publishedAt'])
 videos_report.to_csv("./Data/videos_report.csv", index=None)

@@ -2,7 +2,7 @@ import pandas as pd
 from apiclient.discovery import build
 from apiclient.errors import HttpError
 import settings
-import tweepy
+from requests_oauthlib import OAuth1Session
 
 userdicdf = pd.read_csv('./Data/id.csv', sep=',', encoding='utf-8', index_col=False, header=None)
 list(userdicdf[0])
@@ -78,6 +78,7 @@ AS = settings.TW_TOKEN_SECRET
 
 url_text = "https://api.twitter.com/1.1/statuses/update.json"
 
+twitter = OAuth1Session(CK, CS, AT, AS)
 
 if not check:
   print('Not found.')

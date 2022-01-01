@@ -35,6 +35,10 @@ jobs:
           python notification.py
         env:
           YT_API: ${{ secrets.YT_API_ENV }}
+          TW_CONSUMER_KEY: ${{ secrets.TWITTER_API_KEY }}
+          TW_CONSUMER_SECRET: ${{ secrets.TWITTER_API_SECRET_KEY }}
+          TW_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          TW_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
 
 # Gitのセットアップ
       - name: Setup Git

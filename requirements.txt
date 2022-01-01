@@ -11,3 +11,4 @@ datetime
 matplotlib
 jsons
 requests-oauthlib
+tweepy

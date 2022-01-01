@@ -18,10 +18,10 @@ searches = []
 videos = []
 nextPagetoken = None
 nextpagetoken = None
-consumer_key = settings.TW_CONSUMER_KEY
-consumer_secret = settings.TW_CONSUMER_SECRET
-access_token = settings.TW_TOKEN
-access_token_secret = settings.TW_TOKEN_SECRET
+consumer_key = str(settings.TW_CONSUMER_KEY)
+consumer_secret = str(settings.TW_CONSUMER_SECRET)
+access_token = str(settings.TW_TOKEN)
+access_token_secret = str(settings.TW_TOKEN_SECRET)
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)

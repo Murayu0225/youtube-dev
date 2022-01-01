@@ -75,17 +75,11 @@ if not check:
   print('Not found.')
 else:
   print('Start Tweet.')
-  for id in check:
-    t = Twitter(
-      auth=OAuth(
-          settings.TW_TOKEN,
-          settings.TW_TOKEN_SECRET,
-          settings.TW_CONSUMER_KEY,
-          settings.TW_CONSUMER_SECRET,
-      )
-    )
+  for id in check:   
+    t = Twitter(auth = OAuth(settings.TW_TOKEN, settings.TW_TOKEN_SECRET, settings.TW_CONSUMER_KEY, settings.TW_CONSUMER_SECRET))
     msg = "[TEST MODE] NiziU OfficialさんがYouTubeに新規投稿をしました！\n#NiziU\n\nhttps://www.youtube.com/watch?v=" + id
-    t.statuses.update(status=msg)
+    statusUpdate = t.statuses.update(status=msg)
+    print(statusUpdate)
 
 videos_report = pd.DataFrame(videos, columns=['title', 'viewCount', 'likeCount', 'commentCount', 'publishedAt'])
 videos_report.to_csv("./Data/videos_report.csv", index=None)

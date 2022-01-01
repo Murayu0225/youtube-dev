@@ -57,9 +57,9 @@ for result in searches:
 
     for video_result in video_response.get("items", []):
         if video_result["kind"] == "youtube#video":
-            videos.append([video_result["snippet"]["title"],video_result["statistics"]["viewCount"],video_result["statistics"]["likeCount"],video_result["statistics"]["commentCount"],video_result["snippet"]["publishedAt"]])  
+            videos.append(search_result["id"]["videoId"],[video_result["snippet"]["title"],video_result["statistics"]["viewCount"],video_result["statistics"]["likeCount"],video_result["statistics"]["commentCount"],video_result["snippet"]["publishedAt"]])  
 
-videos_report = pd.DataFrame(videos, columns=['title', 'viewCount', 'likeCount', 'commentCount', 'publishedAt'])
+videos_report = pd.DataFrame(videos, columns=['id', 'title', 'viewCount', 'likeCount', 'commentCount', 'publishedAt'])
 videos_report.to_csv("./Data/videos_report.csv", index=None)
 
 channel_report = pd.DataFrame(channels, columns=['title', 'subscriberCount', 'videoCount', 'publishedAt'])

@@ -1,0 +1,55 @@
+name: NiziU notification
+
+# 一時的な実行方法
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+
+# on:
+  # workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+# おまじない
+      - uses: actions/checkout@v2
+
+# Pythonのセットアップ
+      - name: Setup python
+        uses: actions/setup-python@v2 
+        with:
+          python-version: "3.8"
+
+# 必要なパッケージのインストール
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install --upgrade google-api-python-client
+          pip install -r requirements.txt
+
+# チャットを取得するファイルを実行させる
+      - name: Run settings.py & retweet.py
+        run: |
+          python settings.py
+          python retweet.py
+        env:
+          TW_CONSUMER_KEY: ${{ secrets.TWITTER_API_KEY }}
+          TW_CONSUMER_SECRET: ${{ secrets.TWITTER_API_SECRET_KEY }}
+          TW_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          TW_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+
+# Gitのセットアップ
+      - name: Setup Git
+        run: |
+          git config --local user.name "GitHub Action"
+          git config --local user.email "action@github.com"
+
+# ライブチャットデータを保存
+      - name: Commit and Push
+        run: |
+          git config pull.rebase false
+          git add .
+          git commit -m "Request ready!" || echo "No changes to commit."
+          git pull origin main
+          git push origin main

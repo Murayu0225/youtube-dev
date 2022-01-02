@@ -32,8 +32,8 @@ jobs:
 # チャットを取得するファイルを実行させる
       - name: Run settings.py & chopstick-v2.py
         run: |
-          python settings.py
-          python chopstick-v2.py
+          python ./src/settings.py
+          python ./src/chopstick-v2.py
         env:
           YT_API: ${{ secrets.YT_API_ENV_V2 }}
 

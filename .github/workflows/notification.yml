@@ -1,12 +1,12 @@
 name: NiziU notification
 
 # 一時的な実行方法
-# on:
-  # schedule:
-    # - cron: '*/5 * * * *'
-
 on:
-  workflow_dispatch:
+  schedule:
+    - cron: '*/5 * * * *'
+
+# on:
+  # workflow_dispatch:
 
 jobs:
   build:

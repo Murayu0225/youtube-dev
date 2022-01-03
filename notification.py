@@ -100,8 +100,8 @@ else:
 
 print('Start saving data.')
 try:
-  searches_report = pd.DataFrame(searches)
-  searches_report.to_csv("./Data/id.csv", index=None, header=None)
+  searches_report = pd.DataFrame(check)
+  searches_report.to_csv("./Data/id.csv", mode='a', index=None, header=None)
   
   videos_report = pd.DataFrame(videos, columns=['title', 'viewCount', 'likeCount', 'commentCount', 'publishedAt'])
   videos_report.to_csv("./Data/videos_report.csv", index=None)

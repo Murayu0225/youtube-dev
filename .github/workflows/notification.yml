@@ -39,6 +39,10 @@ jobs:
           TW_CONSUMER_SECRET: ${{ secrets.TWITTER_API_SECRET_KEY }}
           TW_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
           TW_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+          TW_MESSAGE: ${{ secrets.TW_MSG }}
+          YT_ID: ${{ secrets.YT_ID }}
+          YT_VERSION: ${{ secrets.YT_VER }}
+          YT_NAME: ${{ secrets.YT_NAME }}
 
 # Gitのセットアップ
       - name: Setup Git

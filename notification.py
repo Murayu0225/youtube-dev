@@ -82,11 +82,13 @@ except Exception as e:
 print('Checking new post.')
 check = set(id_list) ^ set(searches)
 check = list(check)
+i = 0
 if not check:
   print('Not found.')
 else:
   print('Found!')
   print('Start Tweet...')
+  i += 1
   for id in check:   
     t = Twitter(auth = OAuth(settings.TW_TOKEN, settings.TW_TOKEN_SECRET, settings.TW_CONSUMER_KEY, settings.TW_CONSUMER_SECRET))
     msg = settings.TW_MESSAGE + id
@@ -100,9 +102,10 @@ else:
 
 print('Start saving data.')
 try:
-  for id in check:
-    searches_report = pd.DataFrame(id)
-    searches_report.to_csv("./Data/id.csv", mode='a', index=None, header=None)
+  if i == 1:
+    for id in check:
+      searches_report = pd.DataFrame(id)
+      searches_report.to_csv("./Data/id.csv", mode='a', index=None, header=None)
   
   videos_report = pd.DataFrame(videos, columns=['title', 'viewCount', 'likeCount', 'commentCount', 'publishedAt'])
   videos_report.to_csv("./Data/videos_report.csv", index=None)
